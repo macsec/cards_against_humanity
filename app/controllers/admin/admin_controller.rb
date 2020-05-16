@@ -5,10 +5,9 @@ module Admin
     private
 
     def authenticate
-      return unless Rails.env.production?
 
       authenticate_or_request_with_http_basic('Administration') do |username, password|
-        username == ENV.fetch('HTTP_BASIC_USERNAME') && password == ENV.fetch('HTTP_BASIC_PASSWORD')
+        username == ENV.fetch('HTTP_BASIC_ADM_USERNAME') && password == ENV.fetch('HTTP_BASIC_ADM_PASSWORD')
       end
     end
   end
